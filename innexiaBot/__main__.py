@@ -75,41 +75,41 @@ def get_readable_time(seconds: int) -> str:
 INNEXIA_IMG = "https://telegra.ph/file/8b6f8f2bb4ff3912634c7.jpg"
 
 PM_START_TEXT = """
-`Heya` 🤗 `I am` **INNEXIA** `your group super bot`
-`I am very fast and  more efficient  I provide awesome  features which a owner will look for  filter ,warn system,note keeping system flood!`
+`E ae baianor` 🤗 `Sou traficante, não pera... ` **MUSIC GRAVE SAD** `😎 Super Gerenciador para sua merda desse teu grupo tlgd`
+`Sou muito rápido e mais eficiente Eu fornecêo recursos incríveis que um proprietário vai procurar filtro, sistema de aviso, nota mantendo inundação do sistema!`
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="❔Hᴇʟᴘ & Cᴏᴍᴍᴀɴᴅꜱ ❔", callback_data="help_back"),
+            text="❔Quer ajuda dos comandos ❔", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="🔥 Sᴏᴜʀᴄᴇ", url=f"https://github.com/DarkCybers/innexia"),
+        InlineKeyboardButton(text="🔥 𝕮𝖗𝖎𝖆𝖉𝖔𝖗 ♦️", url=f"https://t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx"),
         InlineKeyboardButton(
             text="Vᴄ Pʟᴀʏᴇʀ 🎶", url=f"https://telegra.ph/Innexia-Vc-Player-08-19"
         ),
     ],
     [
-        InlineKeyboardButton(text="📜 Aʙᴏᴜᴛ", callback_data="innexia_"),
+        InlineKeyboardButton(text="📜 Sobre", callback_data="innexia_"),
         InlineKeyboardButton(
-            text="Bᴀꜱɪᴄ Hᴇʟᴘ 👮", callback_data="innexia_basichelp"
+            text="Comandos básicos 👮", callback_data="innexia_basichelp"
         ),
     ],
     [
-        InlineKeyboardButton(text="💕 Sᴜᴍᴍᴏɴ Mᴇ 💕", url="http://t.me/Innexiabot?startgroup=true"),
+        InlineKeyboardButton(text="😎 Me adicione no seu grupo ademir 😒", url="http://t.me/GR4V3_MUS1C_BOT?startgroup=true"),
     ],
 ]
 
 
 HELP_STRINGS = """
 **SETTINGS**
-`Click on the buttons below to get documentation about specific modules..`)"""
+`Clique nos botões abaixo para obter documentação sobre módulos específicos..`)"""
 
 
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
- @SiderzDonate's 💕"""
+DONATE_STRING = """Ei gay, fico feliz em saber que talvez você possa doar! (Brinks) 
+ @xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx 😂"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -194,7 +194,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="⬅️ BACK", callback_data="help_back")]]
+                        [[InlineKeyboardButton(text="⬅️ VOLTAR", callback_data="help_back")]]
                     ),
                 )
 
@@ -219,12 +219,12 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_photo(
-            INNEXIA_IMG, caption= "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            INNEXIA_IMG, caption= "Eu já estou acordado.!\n<b>Não durmo desde então.:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/SiderzChat")]]
+                [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx")]]
             ),
         )
         
@@ -356,24 +356,24 @@ def innexia_about_callback(update, context):
     query = update.callback_query
     if query.data == "innexia_":
         query.message.edit_text(
-            text=""" 𝗜𝗡𝗡𝗘𝗫𝗜𝗔 - A bot to manage your groups with additional features!
-            \nHere's the basic help regarding use of Innexia.
+            text=""" GRAVE SAD CRAZZY - bot para gerenciar seus grupos com recursos adicionais!
+            \nAqui está a ajuda básica sobre o uso do GRAVE SAD CRAZZY GERENCIADOR.
             
-            \nAlmost all modules usage defined in the help menu, checkout by sending `/help`
-            \nReport error/bugs click the Button""",
+            \nQuase todos os módulos de uso definidos no menu de ajuda, checkout enviando `/help`
+            \nRelatar erros/bugs clique no botão""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="Bᴜɢ'ꜱ", url="t.me/SiderzChat"
+                            text="Bᴜɢ'ꜱ", url="t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx"
                         ),
                         InlineKeyboardButton(
-                            text="Bᴏᴛ Lɪꜱᴛ", url="t.me/SiderzBot/11"
+                            text="Quer uma lista dos meus bots?", url="t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx"
                         ),
                     ],
-                    [InlineKeyboardButton(text="Back", callback_data="innexia_back")],
+                    [InlineKeyboardButton(text="Voltar", callback_data="innexia_back")],
                 ]
             ),
         )
@@ -388,11 +388,11 @@ def innexia_about_callback(update, context):
 
     elif query.data == "innexia_basichelp":
         query.message.edit_text(
-            text=f"*Here's basic Help regarding* *How to use Me?*"
-            f"\n\n• Firstly Add {dispatcher.bot.first_name} to your group by pressing [here](http://t.me/{dispatcher.bot.username}?startgroup=true)\n"
-            f"\n• After adding promote me manually with full rights for faster experience.\n"
-            f"\n• Than send `/admincache@InnexiaBot` in that chat to refresh admin list in My database.\n"
-            f"\n\n*All done now use below given button's to know about use!*\n"
+            text=f"*Aqui está a ajuda básica em relação* *Como me usar?*"
+            f"\n\n• Em primeiro lugar, adicione {dispatcher.bot.first_name} para o seu grupo, pressionando [Aqui parceiru](http://t.me/{dispatcher.bot.username}?startgroup=true)\n"
+            f"\n• Depois de adicionar me promover manualmente com direitos completos para uma experiência mais rápida.\n"
+            f"\n• Envia `/admincache` nesse chat para atualizar lista de administradores no meu banco de dados.\n"
+            f"\n\n*Tudo feito agora use abaixo dado botão para saber sobre o uso!*\n"
             f"",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
@@ -407,7 +407,7 @@ def innexia_about_callback(update, context):
                     InlineKeyboardButton(text="Cʀᴇᴅɪᴛ", callback_data="innexia_credit"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="innexia_back"),
+                    InlineKeyboardButton(text="Voltar", callback_data="innexia_back"),
                  
                  ]
                 ]
@@ -415,14 +415,14 @@ def innexia_about_callback(update, context):
         )
     elif query.data == "innexia_admin":
         query.message.edit_text(
-            text=f"*Let's make your group bit effective now*"
-            f"\nCongragulations, Innexia now ready to manage your group."
-            f"\n\n*Admin Tools*"
-            f"\nBasic Admin tools help you to protect and powerup your group."
-            f"\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
-            f"\n\n*Welcome*"
-            f"\nLets set a welcome message to welcome new users coming to your group."
-            f"send `/setwelcome [message]` to set a welcome message!",
+            text=f"*Vamos tornar seu grupo um pouco eficaz agora*"
+            f"\nParabéns, Grave Sad Crazzy Manager agora pronto para gerenciar seu grupo."
+            f"\n\n*Ferramentas de administração*"
+            f"\nFerramentas básicas de administração ajudam você a proteger e impulsionar seu grupo."
+            f"\nVocê pode banir membros, membros do Kick, Promover alguém como administrador através de comandos do bot."
+            f"\n\n*Bem-vindo*"
+            f"\nVamos definir uma mensagem de boas-vindas para receber novos usuários que vêm ao seu grupo."
+            f"Envie `/setwelcome [message]` para definir uma mensagem de boas-vindas!",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -432,32 +432,32 @@ def innexia_about_callback(update, context):
 
     elif query.data == "innexia_notes":
         query.message.edit_text(
-            text=f"<b> Setting up notes</b>"
-            f"\nYou can save message/media/audio or anything as notes"
-            f"\nto get a note simply use # at the beginning of a word"
-            f"\n\nYou can also set buttons for notes and filters (refer help menu)",
+            text=f"<b> Configuração de notas</b>"
+            f"\nVocê pode salvar mensagem/mídia/áudio ou qualquer coisa como notas"
+            f"\nto obter uma nota simplesmente usar # no início de uma palavra"
+            f"\n\nVocê também pode definir botões para notas e filtros (refer help menu)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="innexia_basichelp")]]
+                [[InlineKeyboardButton(text="Voltar", callback_data="innexia_basichelp")]]
             ),
         )
     elif query.data == "innexia_support":
         query.message.edit_text(
-            text="* Innexia support chats*"
-            "\nJoin Support Group/Channel",
+            text="* Grave Sad - Grupo de suporte*"
+            "\nEntre em Support Group/Channel",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Lᴏɢ'ꜱ", url="t.me/InnexiaLogs"),
-                    InlineKeyboardButton(text="Fᴇᴅ", url="t.me/SiderzFedChat"),
+                    InlineKeyboardButton(text="𝕮𝖗𝖎𝖆𝖉𝖔𝖗", url="t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx"),
+                    InlineKeyboardButton(text="Grupo suporte", url="t.me/blazer808_Stay"),
                  ],
                  [
-                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/SiderzChat"),
-                    InlineKeyboardButton(text="Uᴘᴅᴀᴛᴇꜱ", url="https://t.me/SiderzBot"),
+                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/blazer808_Stay"),
+                    InlineKeyboardButton(text="Canal", url="https://t.me/GR4V3_S4D_CRAZZY"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="innexia_basichelp"),
+                    InlineKeyboardButton(text="Voltar", callback_data="innexia_basichelp"),
                  
                  ]
                 ]
@@ -465,21 +465,21 @@ def innexia_about_callback(update, context):
         )
     elif query.data == "innexia_credit":
         query.message.edit_text(
-            text=f"<b> CREDIT FOR INNEXIA DEV'S</b>\n"
-            f"\nHere Some Developers Helping in Making The Innexia Bot",
+            text=f"<b> Créditos para Manager Grave Sad DEV'S</b>\n"
+            f"\nAqui alguns desenvolvedores ajudando na criação do Bot Grave Sad",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Sᴀᴍᴍʏ", url="t.me/useIes"),
-                    InlineKeyboardButton(text="Bʟᴀᴢᴇ", url="t.me/piroXpower"),
+                    InlineKeyboardButton(text="O Pae", url="t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx"),
+                    InlineKeyboardButton(text="Bʟᴀᴢᴇ", url="t.me/blazer808_Stay"),
                  ],
                  [
-                    InlineKeyboardButton(text="Iɴꜰɪɴɪᴛʏ", url="t.me/hell_king_infinity"),
-                    InlineKeyboardButton(text="Zᴀʟɪᴍ", url="https://t.me/Jalim_Munda"),
+                    InlineKeyboardButton(text="Iɴꜰɪɴɪᴛʏ", url="t.me/GR4V3_S4D_CRAZZY"),
+                    InlineKeyboardButton(text="Mãi Parceiru", url="https://t.me/PV_D0_M30_D3M0N12YNH0_P4ND4"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="innexia_basichelp"),
+                    InlineKeyboardButton(text="Voltar", callback_data="innexia_basichelp"),
                  
                  ]
                 ]
@@ -492,14 +492,14 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..😻 I'm *Innexia*
-                 \nHere is the [🔥Source Code🔥](https://github.com/DarkCybers/innexiaBot) .""",
+            text=""" Olá gay do caralho aqui é o *Grave Manager*
+                 \nQuer saber quem é a porra do criador? [𝕮𝖗𝖎𝖆𝖉𝖔𝖗](https://t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="source_back")
+                    InlineKeyboardButton(text="Para Voltar", callback_data="source_back")
                  ]
                 ]
             ),
@@ -539,12 +539,12 @@ def get_help(update: Update, context: CallbackContext):
             )
             return
         update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands.",
+            "Entre em contato comigo na PM para obter a lista de possíveis comandos.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="Hᴇʟᴘ ❔",
+                            text="Ajuda man ❔",
                             url="t.me/{}?start=help".format(context.bot.username),
                         )
                     ],
@@ -571,7 +571,7 @@ def get_help(update: Update, context: CallbackContext):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="Voltar", callback_data="help_back")]]
             ),
         )
 
@@ -588,14 +588,14 @@ def send_settings(chat_id, user_id, user=False):
             )
             dispatcher.bot.send_message(
                 user_id,
-                "These are your current settings:" + "\n\n" + settings,
+                "Estas são as configurações atuais:" + "\n\n" + settings,
                 parse_mode=ParseMode.MARKDOWN,
             )
 
         else:
             dispatcher.bot.send_message(
                 user_id,
-                "Seems like there aren't any user specific settings available :'(",
+                "Parece que não há configurações específicas do usuário disponíveis :'(",
                 parse_mode=ParseMode.MARKDOWN,
             )
 
@@ -604,7 +604,7 @@ def send_settings(chat_id, user_id, user=False):
             chat_name = dispatcher.bot.getChat(chat_id).title
             dispatcher.bot.send_message(
                 user_id,
-                text="Which module would you like to check {}'s settings for?".format(
+                text="Qual módulo você gostaria de verificar {}'s configurações para?".format(
                     chat_name
                 ),
                 reply_markup=InlineKeyboardMarkup(
@@ -614,8 +614,8 @@ def send_settings(chat_id, user_id, user=False):
         else:
             dispatcher.bot.send_message(
                 user_id,
-                "Seems like there aren't any chat settings available :'(\nSend this "
-                "in a group chat you're admin in to find its current settings!",
+                "Parece que não há configurações de bate-papo disponíveis :'(\nSend this "
+                "em um bate-papo em grupo você é administrador para encontrar suas configurações atuais!",
                 parse_mode=ParseMode.MARKDOWN,
             )
 
@@ -634,7 +634,7 @@ def settings_button(update: Update, context: CallbackContext):
             chat_id = mod_match.group(1)
             module = mod_match.group(2)
             chat = bot.get_chat(chat_id)
-            text = "*{}* has the following settings for the *{}* module:\n\n".format(
+            text = "*{}* tem as seguintes configurações para o *{}* module:\n\n".format(
                 escape_markdown(chat.title), CHAT_SETTINGS[module].__mod_name__
             ) + CHAT_SETTINGS[module].__chat_settings__(chat_id, user.id)
             query.message.reply_text(
@@ -644,7 +644,7 @@ def settings_button(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Back",
+                                text="Voltar",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
@@ -657,8 +657,8 @@ def settings_button(update: Update, context: CallbackContext):
             curr_page = int(prev_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                "Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(chat.title),
+                "Oi! Existem algumas configurações para {} - vá em frente e escolher o que "
+                "você está interessado em.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
                         curr_page - 1, CHAT_SETTINGS, "stngs", chat=chat_id
@@ -671,7 +671,7 @@ def settings_button(update: Update, context: CallbackContext):
             next_page = int(next_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                "Hi there! There are quite a few settings for {} - go ahead and pick what "
+                "Oi! Existem algumas configurações para {} - vá em frente e escolher o que "
                 "you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -684,8 +684,8 @@ def settings_button(update: Update, context: CallbackContext):
             chat_id = back_match.group(1)
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                text="Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(escape_markdown(chat.title)),
+                text="Oi! Existem algumas configurações para {} - vá em frente e escolher o que "
+                "você está interessado em.".format(escape_markdown(chat.title)),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)
@@ -713,14 +713,14 @@ def get_settings(update: Update, context: CallbackContext):
     # ONLY send settings in PM
     if chat.type != chat.PRIVATE:
         if is_user_admin(chat, user.id):
-            text = "Click here to get this chat's settings, as well as yours."
+            text = "Clique aqui para obter as configurações deste chat, bem como o seu."
             msg.reply_text(
                 text,
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                text="Settings",
+                                text="Configurações",
                                 url="t.me/{}?start=stngs_{}".format(
                                     context.bot.username, chat.id
                                 ),
@@ -730,7 +730,7 @@ def get_settings(update: Update, context: CallbackContext):
                 ),
             )
         else:
-            text = "Click here to check your settings."
+            text = "Clique aqui para verificar suas configurações."
 
     else:
         send_settings(chat.id, user.id, True)
@@ -748,7 +748,7 @@ def donate(update: Update, context: CallbackContext):
 
         if OWNER_ID != 1947924017 and DONATION_LINK:
             update.effective_message.reply_text(
-                "You can also donate to the person currently running me "
+                "Você também pode doar para a pessoa que está me administrando "
                 "[here]({})".format(DONATION_LINK),
                 parse_mode=ParseMode.MARKDOWN,
             )
@@ -763,7 +763,7 @@ def donate(update: Update, context: CallbackContext):
             )
 
             update.effective_message.reply_text(
-                "I've PM'ed you about donating to my creator!"
+                "Eu te disse sobre doar para o meu criador.!"
             )
         except Unauthorized:
             update.effective_message.reply_text(
@@ -786,7 +786,7 @@ def migrate_chats(update: Update, context: CallbackContext):
     for mod in MIGRATEABLE:
         mod.__migrate__(old_chat, new_chat)
 
-    LOGGER.info("Successfully migrated!")
+    LOGGER.info("Migraram com sucesso!")
     raise DispatcherHandlerStop
 
 
@@ -797,7 +797,7 @@ def main():
             dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "I Aᴍ Aʟɪᴠᴇ 🔥")
         except Unauthorized:
             LOGGER.warning(
-                "Bot isnt able to send message to support_chat, go and check!"
+                "Bot não é capaz de enviar mensagem para support_chat, ir e verificar!"
             )
         except BadRequest as e:
             LOGGER.warning(e.message)
