@@ -35,7 +35,7 @@ async def _(event):
     if event.fwd_from:
         return
     
-    webevent = await event.reply("searching........")
+    webevent = await event.reply("Procurando ademir........")
     match = event.pattern_match.group(1)
     page = re.findall(r"page=\d+", match)
     try:
@@ -53,11 +53,11 @@ async def _(event):
             title = gresults["titles"][i]
             link = gresults["links"][i]
             desc = gresults["descriptions"][i]
-            msg += f"❍[{title}]({link})\n**{desc}**\n\n"
+            msg += f"🧐[{title}]({link})\n**{desc}**\n\n"
         except IndexError:
             break
     await webevent.edit(
-        "**Search Query:**\n`" + match + "`\n\n**Results:**\n" + msg, link_preview=False
+        "**Consulta de pesquisa:**\n`" + match + "`\n\n**Resultados:**\n" + msg, link_preview=False
     )
 
 @register(pattern="^/img (.*)")
@@ -92,7 +92,7 @@ opener.addheaders = [("User-agent", useragent)]
 
 @register(pattern=r"^/reverse(?: |$)(\d*)")
 async def okgoogle(img):
-    """ For .reverse command, Google search images and stickers. """
+    """ para .reverse comando, Imagens de pesquisa do Google e adesivos. """
     if os.path.isfile("okgoogle.png"):
         os.remove("okgoogle.png")
     
@@ -101,15 +101,15 @@ async def okgoogle(img):
         photo = io.BytesIO()
         await tbot.download_media(message, photo)
     else:
-        await img.reply("`Reply to photo or sticker nigger.`")
+        await img.reply("`Responda a foto ou adesivo nigger.`")
         return
 
     if photo:
-        dev = await img.reply("`Processing...`")
+        dev = await img.reply("`Processamento...`")
         try:
             image = Image.open(photo)
         except OSError:
-            await dev.edit("`Unsupported sexuality, most likely.`")
+            await dev.edit("`Sexualidade sem suporte, provavelmente.`")
             return
         name = "okgoogle.png"
         image.save(name, "PNG")
@@ -122,11 +122,11 @@ async def okgoogle(img):
 
         if response != 400:
             await dev.edit(
-                "`Image successfully uploaded to Google. Maybe.`"
-                "\n`Parsing source now. Maybe.`"
+                "`Imagem enviada com sucesso para o Google. Talvez.`"
+                "\n`Fonte de análise agora. Talvez.`"
             )
         else:
-            await dev.edit("`Google told me to fuck off.`")
+            await dev.edit("`O Google me disse para me se foder 😒😂..`")
             return
 
         os.remove(name)
@@ -135,9 +135,9 @@ async def okgoogle(img):
         imgspage = match["similar_images"]
 
         if guess and imgspage:
-            await dev.edit(f"[{guess}]({fetchUrl})\n\n`Looking for this Image...`")
+            await dev.edit(f"[{guess}]({fetchUrl})\n\n`Procurando por esta Imagem...`")
         else:
-            await dev.edit("`Can't find this piece of shit.`")
+            await dev.edit("`Não consigo encontrar esse pedaço de merda..`")
             return
 
         if img.pattern_match.group(1):
@@ -265,27 +265,26 @@ async def apk(e):
         app_details += (
             "\n<code>Features :</code> <a href='"
             + app_link
-            + "'>View in Play Store</a>"
+            + "'>Veja em Play Store</a>"
         )
         app_details += "\n\n===> @SiderzBot <==="
         await e.reply(app_details, link_preview=True, parse_mode="HTML")
     except IndexError:
-        await e.reply("No result found in search. Please enter **Valid app name**")
+        await e.reply("Nenhum resultado encontrado na busca. Digite **Nome de aplicativo válido**")
     except Exception as err:
-        await e.reply("Exception Occured:- " + str(err))
+        await e.reply("Exceção ocorreu:- " + str(err))
 
 
 __mod_name__ = "Search"
 
 __help__ = """
- ❍ /google <text>*:* Perform a google search
- ❍ /img <text>*:* Search Google for images and returns them\nFor greater no. of results specify lim, For eg: `/img hello lim=10`
- ❍ /app <appname>*:* Searches for an app in Play Store and returns its details.
- ❍ /reverse: Does a reverse image search of the media which it was replied to.
- ❍ /gps <location>*:* Get gps location.
- ❍ /github <username>*:* Get information about a GitHub user.
- ❍ /country <country name>*:* Gathering info about given country
- ❍ /imdb <Movie name>*:* Get full info about a movie with imdb.com
- ❍ Innexia <query>*:* Innexia answers the query
-  💡Ex: `Innexia where is India?`
+ ♦️ /google <texto da sua pesquisa>*:* Realize uma pesquisa no Google
+ ♦️ /img <texto>*:* Pesquise imagens no Google e devolva-as\nPara maior não. de resultados especificar lim, por exemplo: `/img Oi lim=10`
+ ♦️ /app <Nome do app>*:* Busca um aplicativo na Play Store e retorna seus detalhes.
+ ♦️ /reverse: Faz uma pesquisa de imagem reversa da mídia que foi respondida.
+ ♦️ /gps <localização>*:* Obter localização gps.
+ ♦️ /github <username>*:* Obtenha informações sobre um usuário do GitHub.
+ ♦️ /country <Nome do vosso país>*:* Coletando informações sobre determinado país
+ ♦️ /imdb <Movie nome>*:* Obtenha informações completas sobre um filme com imdb.com
+
 """
