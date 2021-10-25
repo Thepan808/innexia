@@ -77,10 +77,10 @@ def totranslate(update: Update, context: CallbackContext):
 
     except IndexError:
         update.effective_message.reply_text(
-            "Reply to messages or write messages from other languages ​​for translating into the intended language\n\n"
-            "Example: `/tr en-ml` to translate from English to Malayalam\n"
-            "Or use: `/tr ml` for automatic detection and translating it into Malayalam.\n"
-            "See [List of Language Codes](t.me/OnePunchSupport/12823) for a list of language codes.",
+            "Responda a mensagens ou escreva mensagens de outros idiomas para traduzir para o idioma pretendido\n\n"
+            "Exemplo: `/tr en-ml` to translate from English to Malayalam\n"
+            "ou use: `/tr ml` para detecção automática e traduzi-lo em Malayalam.\n"
+            "Ver [Lista de Códigos de Idioma](t.me/OnePunchSupport/12823) para uma lista de códigos de idioma.",
             parse_mode="markdown",
             disable_web_page_preview=True,
         )
@@ -91,12 +91,12 @@ def totranslate(update: Update, context: CallbackContext):
 
 
 __help__ = """
- ❍ /tr or /tl (language code) as reply to a long message
-*Example:* 
- ❍ /tr en*:* translates something to english
- ❍ /tr hi-en*:* translates hindi to english
+ ❍ /tr or /tl (language code) como resposta a uma longa mensagem
+*Exemplo:* 
+ ❍ /tr en*:* traduz algo para o inglês
+ ❍ /tr hi-en*:* traduz hindi para inglês
 
-*Language Codes*
+*Códigos de idioma*
 `af,am,ar,az,be,bg,bn,bs,ca,ceb,co,cs,cy,da,de,el,en,eo,es,
 et,eu,fa,fi,fr,fy,ga,gd,gl,gu,ha,haw,hi,hmn,hr,ht,hu,hy,
 id,ig,is,it,iw,ja,jw,ka,kk,km,kn,ko,ku,ky,la,lb,lo,lt,lv,mg,mi,mk,
