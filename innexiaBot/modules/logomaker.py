@@ -77,11 +77,11 @@ async def lego(event):
  else:
      
     if not quew:
-       await event.reply('Provide Some Text To Draw!')
+       await event.reply('fornecer algum texto para desenhar!')
        return
     else:
        pass
- await event.reply('Creating your logo...wait!')
+ await event.reply('Criando seu logotipo... espera!')
  try:
     text = event.pattern_match.group(1)
     img = Image.open('./innexiaBot/resources/blackbg.jpg')
@@ -100,11 +100,11 @@ async def lego(event):
     draw.text((x, y), text, font=font, fill="black", stroke_width=25, stroke_fill="yellow")
     fname2 = "LogoByInnexia.png"
     img.save(fname2, "png")
-    await tbot.send_file(event.chat_id, fname2, caption="💕 Made By @SiderzBot Support @SiderzChat")
+    await tbot.send_file(event.chat_id, fname2, caption="👑 Feito por Mim meo parceiru 😎")
     if os.path.exists(fname2):
             os.remove(fname2)
  except Exception as e:
-   await event.reply(f'Error Report @SiderzChat, {e}')
+   await event.reply(f'Error Reporta na casa do caralho, {e}')
 
 
 
@@ -117,11 +117,11 @@ async def lego(event):
  else:
      
     if not quew:
-       await event.reply('Provide Some Text To Draw!')
+       await event.reply('fornecer algum texto para desenhar!')
        return
     else:
        pass
- await event.reply('Creating your logo...wait!')
+ await event.reply('Criando seu logotipo... espera!')
  try:
     text = event.pattern_match.group(1)
     img = Image.open('./innexiaBot/resources/blackbg.jpg')
@@ -140,11 +140,11 @@ async def lego(event):
     draw.text((x, y), text, font=font, fill="white", stroke_width=0, stroke_fill="white")
     fname2 = "LogoByInnexia.png"
     img.save(fname2, "png")
-    await tbot.send_file(event.chat_id, fname2, caption="Made By @innexiaBot")
+    await tbot.send_file(event.chat_id, fname2, caption="👑 Feito por mim 😎")
     if os.path.exists(fname2):
             os.remove(fname2)
  except Exception as e:
-   await event.reply(f'Error Report @SiderzChat, {e}')
+   await event.reply(f'Error Reporta na casa do garai, {e}')
 
 file_help = os.path.basename(__file__)
 file_help = file_help.replace(".py", "")
@@ -152,8 +152,8 @@ file_helpo = file_help.replace("_", " ")
 
 
 __help__ = """
- ❍ /logo text :  Create your logo with your name
- ❍ /wlogo text :  Create your logo with your name
+ 🧐 /logo texto :  Crie seu logotipo com seu nome
+ 🧐 /wlogo texto :  Crie seu logotipo com seu nome
 
  """
 __mod_name__ = "Logo"
