@@ -16,10 +16,10 @@ async def song(client, message):
     message.from_user["id"]
     args = get_arg(message) + " " + "song"
     if args.startswith(" "):
-        await message.reply("<b>Enter song name❗</b>")
+        await message.reply("<b>Digite o nome da música❗</b>")
         return ""
     m = await message.reply_text(
-        "Downloading your song,\nPlz wait ⏳️"
+        "Baixando sua música,\nAguarde ademir 🧐"
     )
     try:
         r = requests.get(f"https://jostapi.herokuapp.com/saavn?query={args}")
@@ -71,11 +71,11 @@ async def download_song(url):
 @innexia.on_message(filters.command("deezer"))
 async def deezer(_, message):
     if len(message.command) < 2:
-        await message.reply_text("Download Now Deezer")
+        await message.reply_text("Baixe Agora via Deezer")
         return
     text = message.text.split(None, 1)[1]
     query = text.replace(" ", "%20")
-    m = await message.reply_text("Searching...")
+    m = await message.reply_text("Procurando...")
     try:
         r = await fetch(f"{ARQ}deezer?query={query}&count=1")
         title = r[0]["title"]
@@ -84,9 +84,9 @@ async def deezer(_, message):
     except Exception as e:
         await m.edit(str(e))
         return
-    await m.edit("Downloading...")
+    await m.edit("Baixando...")
     song = await download_song(url)
-    await m.edit("Uploading...")
+    await m.edit("Carregando fela da pota...")
     await message.reply_audio(audio=song, title=title, performer=artist)
     os.remove(song)
     await m.delete()
@@ -125,11 +125,11 @@ async def download_song(url):
 @innexia.on_message(filters.command("deezer"))
 async def deezer(_, message):
     if len(message.command) < 2:
-        await message.reply_text("Download Now Deezer")
+        await message.reply_text("Baixe Agora Deezer")
         return
     text = message.text.split(None, 1)[1]
     query = text.replace(" ", "%20")
-    m = await message.reply_text("Searching...")
+    m = await message.reply_text("Procurando...")
     try:
         r = await fetch(f"{ARQ}deezer?query={query}&count=1")
         title = r[0]["title"]
@@ -138,9 +138,9 @@ async def deezer(_, message):
     except Exception as e:
         await m.edit(str(e))
         return
-    await m.edit("Downloading...")
+    await m.edit("Baixando...")
     song = await download_song(url)
-    await m.edit("Uploading...")
+    await m.edit("Carregando ademir...")
     await message.reply_audio(audio=song, title=title, performer=artist)
     os.remove(song)
     await m.delete()
@@ -149,10 +149,10 @@ async def deezer(_, message):
 __mod_name__ = "Music"
 
 __help__ = """
-• `/song`** <songname artist(optional)>: download the song in it's best quality available.(API BASED)
-• `/video`** <songname artist(optional)>: download the video song in it's best quality available.
-• `/deezer`** <songname>: download from deezer
-• `/lyrics`** <songname artist(optional)>: sends the complete lyrics of the song provided as input
-• `/glyrics`** <i> song name </i> : This plugin searches for song lyrics with song name and artist.
+• `/song`** <artista - nome da música (opcional)>: baixar a música em sua melhor qualidade disponível.(API BASED)
+• `/video`** <artista - nome da música (opcional)>: baixar a música de vídeo em sua melhor qualidade disponível.
+• `/deezer`** <Nome da música>: Baixar via deezer
+• `/lyrics`** <Nome da música>: envia a letra completa da canção fornecida como entrada
+• `/glyrics`** <i> Nome da música </i> : Este plugin busca letras de música com nome da música e artista.
 """
 
