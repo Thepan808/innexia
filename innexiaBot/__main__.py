@@ -87,7 +87,7 @@ buttons = [
     [
         InlineKeyboardButton(text="🔥 𝕮𝖗𝖎𝖆𝖉𝖔𝖗 ♦️", url=f"https://t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx"),
         InlineKeyboardButton(
-            text="Vᴄ Pʟᴀʏᴇʀ 🎶", url=f"https://telegra.ph/Innexia-Vc-Player-08-19"
+            text="Vᴄ Pʟᴀʏᴇʀ 🎶", url=f"https://telegra.ph/𝚅𝚌-𝙿𝚕𝚊𝚢𝚎𝚛-𝙶𝚛𝚊𝚟𝚎-𝚂𝚊𝚍-10-25"
         ),
     ],
     [
