@@ -50,41 +50,41 @@ async def hmm(_, message):
     global innexia_chats
     if len(message.command) != 2:
         await message.reply_text(
-            "I only recognize `/chatbot on` and /chatbot `off only`"
+            "Eu só reconheço `/chatbot on` e /chatbot `off somente`"
         )
         message.continue_propagation()
     status = message.text.split(None, 1)[1]
     chat_id = message.chat.id
     if status == "ON" or status == "on" or status == "On":
-        lel = await edit_or_reply(message, "`Processing...`")
+        lel = await edit_or_reply(message, "`Processamento...`")
         lol = add_chat(int(message.chat.id))
         if not lol:
-            await lel.edit("innexia AI Already Activated In This Chat")
+            await lel.edit("Grave Manager AI Já ativado neste bate-papo")
             return
         await lel.edit(
-            f"innexia AI Successfully Added For Users In The Chat {message.chat.id}"
+            f"Grave Manager AI Adicionado com sucesso para usuários no bate-papo {message.chat.id}"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
-        lel = await edit_or_reply(message, "`Processing...`")
+        lel = await edit_or_reply(message, "`Processamento...`")
         Escobar = remove_chat(int(message.chat.id))
         if not Escobar:
-            await lel.edit("innexia AI Was Not Activated In This Chat")
+            await lel.edit("Grave Manager AI não foi ativado neste bate-papo")
             return
         await lel.edit(
-            f"innexia AI Successfully Deactivated For Users In The Chat {message.chat.id}"
+            f"Grave Manager AI Desativado com sucesso para usuários no bate-papo {message.chat.id}"
         )
 
     elif status == "EN" or status == "en" or status == "english":
         if not chat_id in en_chats:
             en_chats.append(chat_id)
-            await message.reply_text("English AI chat Enabled!")
+            await message.reply_text("Bate-papo de IA em inglês ativado!")
             return
-        await message.reply_text("AI Chat Is Already Disabled.")
+        await message.reply_text("AI O chat já está desativado.")
         message.continue_propagation()
     else:
         await message.reply_text(
-            "I only recognize `/chatbot on` and /chatbot `off only`"
+            "Eu só reconheço `/chatbot on` e /chatbot `off somente`"
         )
 
 
