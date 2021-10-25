@@ -27,10 +27,10 @@ async def _(event):
             ),
         )
         await event.reply(
-            "Open with: [🌏Google Maps]({})".format(gm),
+            "Abra com: [🌏Google Maps]({})".format(gm),
             link_preview=False,
         )
     except Exception as e:
         print(e)
-        await event.reply("I can't find that")
+        await event.reply("Não consigo achar isso, porra.")
 
