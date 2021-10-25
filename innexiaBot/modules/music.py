@@ -94,7 +94,7 @@ async def ytmusic(client, message: Message):
         )
         return
     pablo = await client.send_message(
-        message.chat.id, f"`Ficando {urlissed} Dos servidores do Youtube. Aguarde.`"
+        message.chat.id, f"`Baixando à música {urlissed} nos servidores do Youtube. Aguarde.`"
     )
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
     mi = search.result()
