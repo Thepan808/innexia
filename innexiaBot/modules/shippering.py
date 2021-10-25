@@ -45,9 +45,9 @@ async def couple(_, message):
             c1_mention = (await app.get_users(c1_id)).mention
             c2_mention = (await app.get_users(c2_id)).mention
 
-            couple_selection_message = f"""**Couple of the day:**
+            couple_selection_message = f"""**Quengas do dia(Casal do dia pow):**
 {c1_mention} + {c2_mention} = ❤️
-__New couple of the day may be chosen at 12AM {tomorrow}__"""
+__Novo casal do dia pode ser escolhido em 24 horas {tomorrow}__"""
             await app.send_message(
                 message.chat.id,
                 text=couple_selection_message
@@ -77,7 +77,7 @@ __New couple of the day may be chosen at 12AM {tomorrow}__"""
 
 
 __help__ = """
- ❍ /couples - To Choose Couple Of The Day
+ 😴 /couples - Para escolher o casal do dia
  """
 __mod_name__ = "Couples"
 
