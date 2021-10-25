@@ -31,7 +31,7 @@ async def variable(var):
     exe = var.pattern_match.group(1)
     heroku_var = app.config()
     if exe == "see":
-        k = await var.reply("`Getting information...`")
+        k = await var.reply("`Obtendo informações...`")
         await asyncio.sleep(1.5)
         try:
             variable = var.pattern_match.group(2).split()[0]
@@ -66,7 +66,7 @@ async def variable(var):
             os.remove("configs.json")
             return
     elif exe == "set":
-        s = await var.reply("`Setting information...weit ser`")
+        s = await var.reply("`Definindo informações...`")
         variable = var.pattern_match.group(2)
         if not variable:
             return await s.edit(">`.set var <ConfigVars-name> <value>`")
@@ -80,25 +80,25 @@ async def variable(var):
         await asyncio.sleep(1.5)
         if variable in heroku_var:
             await s.edit(
-                f"**{variable}**  `successfully changed to`  ->  **{value}**"
+                f"**{variable}**  `com sucesso mudou para`  ->  **{value}**"
             )
         else:
             await s.edit(
-                f"**{variable}**  `successfully added with value`  ->  **{value}**"
+                f"**{variable}**  `adicionado com sucesso com valor`  ->  **{value}**"
             )
         heroku_var[variable] = value
     elif exe == "del":
-        m = await var.edit("`Getting information to deleting variable...`")
+        m = await var.edit("`Obtendo informações para a exclusão da variável...`")
         try:
             variable = var.pattern_match.group(2).split()[0]
         except IndexError:
-            return await m.edit("`Please specify ConfigVars you want to delete`")
+            return await m.edit("`Por favor, especifique ConfigVars que deseja excluir`")
         await asyncio.sleep(1.5)
         if variable in heroku_var:
-            await m.edit(f"**{variable}**  `successfully deleted`")
+            await m.edit(f"**{variable}**  `excluído com sucesso`")
             del heroku_var[variable]
         else:
-            return await m.edit(f"**{variable}**  `is not exists`")
+            return await m.edit(f"**{variable}**  `não existe`")
 
 
 @register(pattern="^/usage(?: |$)")
@@ -110,9 +110,9 @@ async def dyno_usage(dyno):
     else:
         return
     """
-    Get your account Dyno Usage
+    Obtenha sua conta Dyno Use
     """
-    die = await dyno.reply("**Processing...**")
+    die = await dyno.reply("**Processamento...**")
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -128,7 +128,7 @@ async def dyno_usage(dyno):
     r = requests.get(heroku_api + path, headers=headers)
     if r.status_code != 200:
         return await die.edit(
-            "`Error: something bad happened`\n\n" f">.`{r.reason}`\n"
+            "`Error: algo ruim aconteceu`\n\n" f">.`{r.reason}`\n"
         )
     result = r.json()
     quota = result["account_quota"]
@@ -157,12 +157,12 @@ async def dyno_usage(dyno):
     await asyncio.sleep(1.5)
 
     return await die.edit(
-        "**Dyno Usage**:\n\n"
-        f" -> `Dyno usage for`  **{HEROKU_APP_NAME}**:\n"
+        "**Dyno em Uso**:\n\n"
+        f" -> `Dyno uso para`  **{HEROKU_APP_NAME}**:\n"
         f"     •  `{AppHours}`**h**  `{AppMinutes}`**m**  "
         f"**|**  [`{AppPercentage}`**%**]"
         "\n\n"
-        " -> `Dyno hours quota remaining this month`:\n"
+        " -> `Cota de horas dyno restantes este mês`:\n"
         f"     •  `{hours}`**h**  `{minutes}`**m**  "
         f"**|**  [`{percentage}`**%**]"
     )
