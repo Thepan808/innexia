@@ -24,10 +24,10 @@ async def ytmusic(client, message: Message):
     urlissed = get_text(message)
 
     pablo = await client.send_message(
-        message.chat.id, f"`Getting {urlissed} From Youtube Servers. Please Wait.`"
+        message.chat.id, f"`Ficando {urlissed} Dos servidores do Youtube. Aguarde.`"
     )
     if not urlissed:
-        await pablo.edit("Invalid Command Syntax, Please Check Help Menu To Know More!")
+        await pablo.edit("Sintaxe de comando inválida, Por favor, verifique o menu de ajuda para saber mais!")
         return
 
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
@@ -57,11 +57,11 @@ async def ytmusic(client, message: Message):
         with YoutubeDL(opts) as ytdl:
             ytdl_data = ytdl.extract_info(url, download=True)
     except Exception as e:
-        await event.edit(event, f"**Failed To Download** \n**Error :** `{str(e)}`")
+        await event.edit(event, f"**Falha ao baixar** \n**Error :** `{str(e)}`")
         return
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
-    capy = f"**Video Name ➠** `{thum}` \n**Requested For :** `{urlissed}` \n**Channel :** `{thums}` \n**Link :** `{mo}`"
+    capy = f"**Nome do vídeo ➠** `{thum}` \n**Solicitado pelo :** `{urlissed}` \n**Canal :** `{thums}` \n**Link :** `{mo}`"
     await client.send_video(
         message.chat.id,
         video=open(file_stark, "rb"),
@@ -74,7 +74,7 @@ async def ytmusic(client, message: Message):
         progress_args=(
             pablo,
             c_time,
-            f"`Uploading {urlissed} Song From YouTube Music!`",
+            f"`Carregando {urlissed} Música no YouTube Music!`",
             file_stark,
         ),
     )
@@ -90,11 +90,11 @@ async def ytmusic(client, message: Message):
     if not urlissed:
         await client.send_message(
             message.chat.id,
-            "Invalid Command Syntax, Please Check Help Menu To Know More!",
+            "Sintaxe de comando inválida, por favor, verifique o menu de ajuda para saber mais!",
         )
         return
     pablo = await client.send_message(
-        message.chat.id, f"`Getting {urlissed} From Youtube Servers. Please Wait.`"
+        message.chat.id, f"`Ficando {urlissed} Dos servidores do Youtube. Aguarde.`"
     )
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
     mi = search.result()
@@ -130,10 +130,10 @@ async def ytmusic(client, message: Message):
         with YoutubeDL(opts) as ytdl:
             ytdl_data = ytdl.extract_info(mo, download=True)
     except Exception as e:
-        await pablo.edit(f"**Failed To Download** \n**Error :** `{str(e)}`")
+        await pablo.edit(f"**Falha ao baixar** \n**Error :** `{str(e)}`")
         return
     c_time = time.time()
-    capy = f"**Song Name :** `{thum}` \n**Requested For :** `{urlissed}` \n**Channel :** `{thums}` \n**Link :** `{mo}`"
+    capy = f"**Nome da música:** `{thum}` \n**Pedido por :** `{urlissed}` \n**Canal :** `{thums}` \n**Link :** `{mo}`"
     file_stark = f"{ytdl_data['id']}.mp3"
     await client.send_audio(
         message.chat.id,
@@ -159,10 +159,10 @@ async def ytmusic(client, message: Message):
 
 @pbot.on_message(filters.command(["lyric", "lyrics"]))
 async def _(client, message):
-    lel = await message.reply("Searching For Lyrics.....")
+    lel = await message.reply("Procurando letras.....")
     query = message.text
     if not query:
-        await lel.edit("`What I am Supposed to find `")
+        await lel.edit("`O que eu deveria encontrar `")
         return
 
     song = ""
@@ -171,9 +171,9 @@ async def _(client, message):
         if song.lyrics:
             reply = song.format()
         else:
-            reply = "Couldn't find any lyrics for that song! try with artist name along with song if still doesnt work try `.glyrics`"
+            reply = "Não achei nenhuma letra para essa música! tentar com o nome do artista, juntamente com a música, se ainda não funciona tentar `.glyrics`"
     else:
-        reply = "lyrics not found! try with artist name along with song if still doesnt work try `.glyrics`"
+        reply = "letras não encontradas! tentar com o nome do artista, juntamente com a música, se ainda não funciona tentar `.glyrics`"
 
     if len(reply) > 4095:
         with io.BytesIO(str.encode(reply)) as out_file:
@@ -198,7 +198,7 @@ async def lyrics(client, message):
         pass
     else:
         await message.reply(
-            "`Error: please use '-' as divider for <artist> and <song>`\n"
+            "`Error: use '-' como divisor para <artist> e <song>`\n"
             "eg: `.glyrics Nicki Minaj - Super Bass`"
         )
         return
