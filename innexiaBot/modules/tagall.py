@@ -16,7 +16,7 @@ from innexiaBot import pbot
 @pbot.on_message(filters.command("tagall") & ~filters.edited & ~filters.bot)
 @admins_only
 async def tagall(client, message):
-    await message.reply("`Processing.....`")
+    await message.reply("`Processando.....`")
     sh = get_text(message)
     if not sh:
         sh = "Hi!"
@@ -32,5 +32,5 @@ async def tagall(client, message):
 
 __mod_name__ = "Tagall"
 __help__ = """
-- /tagall : Tag everyone in a chat
+- /tagall : Marque todos em um bate-papo
 """
