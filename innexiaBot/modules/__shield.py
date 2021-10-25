@@ -87,11 +87,11 @@ async def is_nsfw(event):
 @tbot.on(events.NewMessage(pattern="/gshield (.*)"))
 async def nsfw_watch(event):
     if not event.is_group:
-        await event.reply("You Can Only Nsfw Watch in Groups.")
+        await event.reply("Você só pode desativar Nsfw em grupos.")
         return
     input_str = event.pattern_match.group(1)
     if not await is_admin(event, BOT_ID):
-        await event.reply("`I Should Be Admin To Do This!`")
+        await event.reply("`Eu deveria ser administrador para fazer isso!`")
         return
     if await is_admin(event, event.message.sender_id):
         if (
@@ -101,11 +101,11 @@ async def nsfw_watch(event):
             or input_str == "enable"
         ):
             if is_nsfwatch_indb(str(event.chat_id)):
-                await event.reply("`This Chat Has Already Enabled Nsfw Watch.`")
+                await event.reply("`Este chat já habilitou o relógio Nsfw.`")
                 return
             add_nsfwatch(str(event.chat_id))
             await event.reply(
-                f"**Added Chat {event.chat.title} With Id {event.chat_id} To Database. This Groups Nsfw Contents Will Be Deleted**"
+                f"**Bate-papo adicionado {event.chat.title} Com ID {event.chat_id} Para banco de dados. Este conteúdo nsfw que aparecerá no grupo será excluído**"
             )
         elif (
             input_str == "off"
@@ -114,18 +114,18 @@ async def nsfw_watch(event):
             or input_str == "disable"
         ):
             if not is_nsfwatch_indb(str(event.chat_id)):
-                await event.reply("This Chat Has Not Enabled Nsfw Watch.")
+                await event.reply("Este chat não habilitou o relógio Nsfw.")
                 return
             rmnsfwatch(str(event.chat_id))
             await event.reply(
-                f"**Removed Chat {event.chat.title} With Id {event.chat_id} From Nsfw Watch**"
+                f"**Chat removido {event.chat.title} Com ID {event.chat_id} Da Nsfw Watch**"
             )
         else:
             await event.reply(
-                "I undestand `/nsfwguardian on` and `/nsfwguardian off` only"
+                "Eu desembrulhei `/nsfwguardian on` e `/nsfwguardian off` somente"
             )
     else:
-        await event.reply("`You Should Be Admin To Do This!`")
+        await event.reply("`Você deve ser administrador para fazer isso!`")
         return
 
 
@@ -148,7 +148,7 @@ async def ws(event):
         await event.delete()
         st = sender.first_name
         hh = sender.id
-        final = f"**NSFW DETECTED**\n\n{st}](tg://user?id={hh}) your message contain NSFW content.. So, Innexia deleted the message\n\n **Nsfw Sender - User / Bot :** {st}](tg://user?id={hh})  \n\n`⚔️Automatic Detections Powered By Innexia AI` \n**#GROUP_GUARDIAN** "
+        final = f"**NSFW DETECTADO seu filho da puta**\n\n{st}](tg://user?id={hh}) sua mensagem contém conteúdo NSFW.. Então, Grave Manager apagou a mensagem\n\n **Nsfw Remetente - User / Bot :** {st}](tg://user?id={hh})  \n\n`🧐 Detecções automáticas By Grave Manager AI` \n**#GROUP_GUARDIAN** "
         dev = await event.respond(final)
         await asyncio.sleep(10)
         await dev.delete()
@@ -159,27 +159,27 @@ async def ws(event):
 @pbot.on_message(filters.command("nsfwguardian") & ~filters.edited & ~filters.bot)
 async def add_nsfw(client, message):
     if len(await member_permissions(message.chat.id, message.from_user.id)) < 1:
-        await message.reply_text("**You don't have enough permissions**")
+        await message.reply_text("**Você não tem permissões suficientes.**")
         return
     status = message.text.split(None, 1)[1] 
     if status == "on" or status == "ON" or status == "enable":
-        pablo = await message.reply("`Processing..`")
+        pablo = await message.reply("`Processamento..`")
         if is_chat_in_db(message.chat.id):
-            await pablo.edit("This Chat is Already In My DB")
+            await pablo.edit("Este chat já está no meu DB")
             return
         me = await client.get_me()
         add_chat(message.chat.id)
-        await pablo.edit("Successfully Added Chat To NSFW Watch.")
+        await pablo.edit("Bate-papo com sucesso ao relógio NSFW.")
         
     elif status == "off" or status=="OFF" or status == "disable":
-        pablo = await message.reply("`Processing..`")
+        pablo = await message.reply("`Processamento..`")
         if not is_chat_in_db(message.chat.id):
-            await pablo.edit("This Chat is Not in dB.")
+            await pablo.edit("Este chat não está no dB.")
             return
         rm_chat(message.chat.id)
-        await pablo.edit("Successfully Removed Chat From NSFW Watch service")
+        await pablo.edit("Chat removido com sucesso do serviço de relógio NSFW")
     else:
-        await message.reply(" I undestand only `/nsfwguardian on` or `/nsfwguardian off` only")
+        await message.reply(" Use apenas `/nsfwguardian on` or `/nsfwguardian off` somente")
         
 @pbot.on_message(filters.incoming & filters.media & ~filters.private & ~filters.channel & ~filters.bot)
 async def nsfw_watch(client, message):
@@ -210,7 +210,7 @@ async def nsfw_watch(client, message):
             Escobar = midhun.id
         await client.send_message(
             message.chat.id,
-            f"**NSFW DETECTED**\n\n{hehe}'s message contain NSFW content.. So, Innexia deleted the message\n\n **Nsfw Sender - User / Bot :** `{Escobar}` \n**Chat Title:** `{ctitle}` \n\n`⚔️Automatic Detections Powered By InnexiaAI` \n**#GROUP_GUARDIAN** ",
+            f"**NSFW DETECTADO**\n\n{hehe}'s mensagem contêm conteúdo NSFW.. Então, Eu apaguei a mensagem\n\n **Nsfw Remetente - User / Bot :** `{Escobar}` \n**Chat Título:** `{ctitle}` \n\n`🧐 Detecções automáticas By Grave Manager AI` \n**#GROUP_GUARDIAN** ",
         )
         message.continue_propagation()
 """
@@ -234,11 +234,11 @@ async def profanity(event):
     if event.fwd_from:
         return
     if not event.is_group:
-        await event.reply("You Can Only profanity in Groups.")
+        await event.reply("Você só pode profanidade em grupos.")
         return
     event.pattern_match.group(1)
     if not await is_admin(event, BOT_ID):
-        await event.reply("`I Should Be Admin To Do This!`")
+        await event.reply("`Eu deveria ser administrador para fazer isso!`")
         return
     if await is_admin(event, event.message.sender_id):
         input = event.pattern_match.group(1)
@@ -247,11 +247,11 @@ async def profanity(event):
             for c in chats:
                 if event.chat_id == c["id"]:
                     await event.reply(
-                        "Please provide some input yes or no.\n\nCurrent setting is : **on**"
+                        "Por favor, forneça alguma entrada sim ou não (yes or no) .\n\nConfiguração atual é : **on**"
                     )
                     return
             await event.reply(
-                "Please provide some input yes or no.\n\nCurrent setting is : **off**"
+                "Por favor, forneça alguma entrada sim ou não.\n\nConfiguração atual é : **off**"
             )
             return
         if input == "on":
@@ -260,25 +260,25 @@ async def profanity(event):
                 for c in chats:
                     if event.chat_id == c["id"]:
                         await event.reply(
-                            "Profanity filter is already activated for this chat."
+                            "Filtro de profanação já está ativado para este bate-papo."
                         )
                         return
                 spammers.insert_one({"id": event.chat_id})
-                await event.reply("Profanity filter turned on for this chat.")
+                await event.reply("Filtro de profanidade ligado para este bate-papo.")
         if input == "off":
             if event.is_group:
                 chats = spammers.find({})
                 for c in chats:
                     if event.chat_id == c["id"]:
                         spammers.delete_one({"id": event.chat_id})
-                        await event.reply("Profanity filter turned off for this chat.")
+                        await event.reply("Filtro de profanação desligado para este bate-papo.")
                         return
-            await event.reply("Profanity filter isn't turned on for this chat.")
+            await event.reply("Filtro de profanação não está ligado para este bate-papo.")
         if not input == "on" and not input == "off":
-            await event.reply("I only understand by on or off")
+            await event.reply("Eu só entendo por on or off")
             return
     else:
-        await event.reply("`You Should Be Admin To Do This!`")
+        await event.reply("`Você deve ser administrador para fazer isso!`")
         return
 
 
@@ -287,11 +287,11 @@ async def profanity(event):
     if event.fwd_from:
         return
     if not event.is_group:
-        await event.reply("You Can Only enable global mode Watch in Groups.")
+        await event.reply("Você só pode ativar o relógio do modo global em grupos.")
         return
     event.pattern_match.group(1)
     if not await is_admin(event, BOT_ID):
-        await event.reply("`I Should Be Admin To Do This!`")
+        await event.reply("`Eu deveria ser administrador para fazer isso!`")
         return
     if await is_admin(event, event.message.sender_id):
 
@@ -301,11 +301,11 @@ async def profanity(event):
             for c in chats:
                 if event.chat_id == c["id"]:
                     await event.reply(
-                        "Please provide some input yes or no.\n\nCurrent setting is : **on**"
+                        "Por favor, forneça alguma entrada sim ou não.\n\nConfiguração atual é : **on**"
                     )
                     return
             await event.reply(
-                "Please provide some input yes or no.\n\nCurrent setting is : **off**"
+                "Por favor, forneça alguma entrada sim ou não.\n\nConfiguração atual é : **off**"
             )
             return
         if input == "on":
@@ -314,25 +314,25 @@ async def profanity(event):
                 for c in chats:
                     if event.chat_id == c["id"]:
                         await event.reply(
-                            "Global mode is already activated for this chat."
+                            "O modo global já está ativado para este bate-papo."
                         )
                         return
                 globalchat.insert_one({"id": event.chat_id})
-                await event.reply("Global mode turned on for this chat.")
+                await event.reply("Modo global ligado para este bate-papo.")
         if input == "off":
             if event.is_group:
                 chats = globalchat.find({})
                 for c in chats:
                     if event.chat_id == c["id"]:
                         globalchat.delete_one({"id": event.chat_id})
-                        await event.reply("Global mode turned off for this chat.")
+                        await event.reply("Modo global desligado para este bate-papo.")
                         return
-            await event.reply("Global mode isn't turned on for this chat.")
+            await event.reply("O modo global não está ligado para este bate-papo.")
         if not input == "on" and not input == "off":
-            await event.reply("I only understand by on or off")
+            await event.reply("Eu só entendo on ou off")
             return
     else:
-        await event.reply("`You Should Be Admin To Do This!`")
+        await event.reply("`Você deve ser administrador para fazer isso!`")
         return
 
 
@@ -354,9 +354,9 @@ async def del_profanity(event):
                     if sender.username is None:
                         st = sender.first_name
                         hh = sender.id
-                        final = f"[{st}](tg://user?id={hh}) **{msg}** is detected as a slang word and your message has been deleted"
+                        final = f"[{st}](tg://user?id={hh}) **{msg}** é detectado como um NSFW e sua mensagem foi excluída"
                     else:
-                        final = f"Sir **{msg}** is detected as a slang word and your message has been deleted"
+                        final = f"Sir **{msg}** é detectado como um NSFW e sua mensagem foi excluída"
                     dev = await event.respond(final)
                     await asyncio.sleep(10)
                     await dev.delete()
@@ -367,7 +367,7 @@ async def del_profanity(event):
                     await event.delete()
                     st = sender.first_name
                     hh = sender.id
-                    final = f"**NSFW DETECTED**\n\n{st}](tg://user?id={hh}) your message contain NSFW content.. So, Layla deleted the message\n\n **Nsfw Sender - User / Bot :** {st}](tg://user?id={hh})  \n\n`⚔️Automatic Detections Powered By LaylaAI` \n**#GROUP_GUARDIAN** "
+                    final = f"**NSFW DETECTADO**\n\n{st}](tg://user?id={hh}) sua mensagem contém conteúdo NSFW.. Então, Eu apaguei a mensagem\n\n **Nsfw Remetente - User / Bot :** {st}](tg://user?id={hh})  \n\n`🧐 Detecções automáticas By Grave ManagerAI` \n**#GROUP_GUARDIAN** "
                     dev = await event.respond(final)
                     await asyncio.sleep(10)
                     await dev.delete()
@@ -430,14 +430,14 @@ async def del_profanity(event):
 
 __help__ = """
 <b> Group Guardian: </b>
-✪ Layla can protect your group from NSFW senders, Slag word users and also can force members to use English
+✪ Grave Manager pode proteger seu grupo de remetentes NSFW, usuários de palavras escória e também pode forçar os membros a usar inglês
 
-<b>Commmands</b>
- - /gshield <i>on/off</i> - Enable|Disable Porn cleaning
- - /globalmode <i>on/off</i> - Enable|Disable English only mode
- - /profanity <i>on/off</i> - Enable|Disable slag word cleaning
+<b>Comandos</b>
+ - /gshield <i>on/off</i> - Habilitar| Desativar a limpeza porno
+ - /globalmode <i>on/off</i> - Habilitar| Desativar o modo somente inglês
+ - /profanity <i>on/off</i> - Habilitar| Desativar a limpeza de palavras escória
  
-Note: Special credits goes to Julia project and Friday Userbot
+
  
 """
 __mod_name__ = "Shield"
