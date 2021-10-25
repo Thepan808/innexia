@@ -286,5 +286,4 @@ __help__ = """
  ♦️ /github <username>*:* Obtenha informações sobre um usuário do GitHub.
  ♦️ /country <Nome do vosso país>*:* Coletando informações sobre determinado país
  ♦️ /imdb <Movie nome>*:* Obtenha informações completas sobre um filme com imdb.com
-
 """
