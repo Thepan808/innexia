@@ -50,14 +50,14 @@ def promote(update: Update, context: CallbackContext) -> str:
         not (promoter.can_promote_members or promoter.status == "creator")
         and user.id not in DRAGONS
     ):
-        message.reply_text("You don't have the necessary rights to do that!")
+        message.reply_text("Você não tem os direitos necessários para fazer isso.!")
         return
 
     user_id = extract_user(message, args)
 
     if not user_id:
         message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect.."
+            "Você não parece estar se referindo a um usuário ou o ID especificado está incorreto.."
         )
         return
 
@@ -67,11 +67,11 @@ def promote(update: Update, context: CallbackContext) -> str:
         return
 
     if user_member.status == "administrator" or user_member.status == "creator":
-        message.reply_text("How am I meant to promote someone that's already an admin?")
+        message.reply_text("Como eu devo promover alguém que já é um administrador hein anta?")
         return
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        message.reply_text("Não posso me promover.! Consiga um administrador para fazer isso por mim..")
         return
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -92,20 +92,20 @@ def promote(update: Update, context: CallbackContext) -> str:
         )
     except BadRequest as err:
         if err.message == "User_not_mutual_contact":
-            message.reply_text("I can't promote someone who isn't in the group.")
+            message.reply_text("Não posso promover alguém que não esteja no grupo..")
         else:
-            message.reply_text("An error occured while promoting.")
+            message.reply_text("Ocorreu um erro ao promover.")
         return
 
     bot.sendMessage(
         chat.id,
-        f"Sucessfully promoted <b>{user_member.user.first_name or user_id}</b>!",
+        f"Sucessivamente promovido gay <b>{user_member.user.first_name or user_id}</b>!",
         parse_mode=ParseMode.HTML,
     )
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
-        f"USER PROMOTED SUCCESSFULLY\n"
+        f"USER PROMOVIDO COM SUCESSO\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
         f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
     )
@@ -130,12 +130,12 @@ def demote(update: Update, context: CallbackContext) -> str:
     user_id = extract_user(message, args)
 
     if user_can_promote(chat, user, context.bot.id) is False:
-        message.reply_text("You don't have enough rights to demote someone!")
+        message.reply_text("Você não tem direitos suficientes para rebaixar alguém.!")
         return ""
 
     if not user_id:
         message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect.."
+            "Você não parece estar se referindo a um usuário ou o ID especificado está incorreto.."
         )
         return
 
@@ -145,15 +145,15 @@ def demote(update: Update, context: CallbackContext) -> str:
         return
 
     if user_member.status == "creator":
-        message.reply_text("This person CREATED the chat, how would I demote them?")
+        message.reply_text("Essa pessoa criou o bate-papo, como eu iria rebaixá-los?")
         return
 
     if not user_member.status == "administrator":
-        message.reply_text("Can't demote what wasn't promoted!")
+        message.reply_text("Não posso rebaixar o que não foi promovido.!")
         return
 
     if user_id == bot.id:
-        message.reply_text("I can't demote myself! Get an admin to do it for me.")
+        message.reply_text("Não posso me rebaixar.! Consiga um administrador para fazer isso por mim..")
         return
 
     try:
@@ -172,13 +172,13 @@ def demote(update: Update, context: CallbackContext) -> str:
 
         bot.sendMessage(
             chat.id,
-            f"Sucessfully demoted <b>{user_member.user.first_name or user_id}</b>!",
+            f"Retirado o ademir com sucesso <b>{user_member.user.first_name or user_id}</b>!",
             parse_mode=ParseMode.HTML,
         )
 
         log_message = (
             f"<b>{html.escape(chat.title)}:</b>\n"
-            f"USER DEMOTED SUCCESSFULLY\n"
+            f"USER REBAIXADO COM SUCESSO\n"
             f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
             f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
         )
@@ -262,7 +262,7 @@ def set_title(update: Update, context: CallbackContext):
 
     bot.sendMessage(
         chat.id,
-        f"Sucessfully set title for <code>{user_member.user.first_name or user_id}</code> "
+        f"Título sucessivamente definido para <code>{user_member.user.first_name or user_id}</code> "
         f"to <code>{html.escape(title[:16])}</code>!",
         parse_mode=ParseMode.HTML,
     )
@@ -320,7 +320,7 @@ def rmchatpic(update, context):
         return
     try:
         context.bot.delete_chat_photo(int(chat.id))
-        msg.reply_text("Successfully deleted chat's profile photo!")
+        msg.reply_text("Foto de perfil do chat excluída com sucesso!")
     except BadRequest as excp:
         msg.reply_text(f"Error! {excp.message}.")
         return
@@ -348,7 +348,7 @@ def setchat_title(update, context):
     try:
         context.bot.set_chat_title(int(chat.id), str(title))
         msg.reply_text(
-            f"Successfully set <b>{title}</b> as new chat title!",
+            f"Definido com sucesso <b>{title}</b> as new chat title!",
             parse_mode=ParseMode.HTML,
         )
     except BadRequest as excp:
@@ -412,7 +412,7 @@ def set_desc(update, context):
                 "Description must needs to be under 255 characters!")
         context.bot.set_chat_description(chat.id, desc)
         msg.reply_text(
-            f"Successfully updated chat description in {chat.title}!")
+            f"Descrição do chat atualizada com sucesso em {chat.title}!")
     except BadRequest as excp:
         msg.reply_text(f"Error! {excp.message}.")
 
@@ -463,7 +463,7 @@ def pin(update: Update, context: CallbackContext) -> str:
                 raise
         log_message = (
             f"<b>{html.escape(chat.title)}:</b>\n"
-            f"MESSAGE PINNED SUCCESSFULLY\n"
+            f"MENSAGEM FIXADA COM SUCESSO\n"
             f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}"
         )
 
@@ -490,7 +490,7 @@ def unpin(update: Update, context: CallbackContext) -> str:
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
-        f"MESSAGE UNPINNED SUCCESSFULLY\n"
+        f"MENSAGEM NÃO FIXADA COM SUCESSO\n"
         f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}"
     )
 
@@ -514,11 +514,11 @@ def invite(update: Update, context: CallbackContext):
             update.effective_message.reply_text(invitelink)
         else:
             update.effective_message.reply_text(
-                "I don't have access to the invite link, try changing my permissions!"
+                "Eu não tenho acesso ao link de convite, tente mudar minhas permissões!"
             )
     else:
         update.effective_message.reply_text(
-            "I can only give you invite links for supergroups and channels, sorry!"
+            "Eu só posso te dar links de convite para supergrupos e canais, desculpe!"
         )
 
 
@@ -540,7 +540,7 @@ def adminlist(update, context):
 
     try:
         msg = update.effective_message.reply_text(
-            "Fetching group admins...", parse_mode=ParseMode.HTML
+            "Admins do grupo...", parse_mode=ParseMode.HTML
         )
     except BadRequest:
         msg = update.effective_message.reply_text(
@@ -548,7 +548,7 @@ def adminlist(update, context):
         )
 
     administrators = bot.getChatAdministrators(chat_id)
-    text = "Admins in <b>{}</b>:".format(html.escape(update.effective_chat.title))
+    text = "Admins em <b>{}</b>:".format(html.escape(update.effective_chat.title))
 
     bot_admin_list = []
 
@@ -558,7 +558,7 @@ def adminlist(update, context):
         custom_title = admin.custom_title
 
         if user.first_name == "":
-            name = "☠ Deleted Account"
+            name = "☠ Conta excluída"
         else:
             name = "{}".format(
                 mention_html(
@@ -574,13 +574,13 @@ def adminlist(update, context):
         # if user.username:
         #    name = escape_markdown("@" + user.username)
         if status == "creator":
-            text += "\n 👑 Creator:"
+            text += "\n 👑😎 Criador:"
             text += "\n<code> • </code>{}\n".format(name)
 
             if custom_title:
                 text += f"<code> ┗━ {html.escape(custom_title)}</code>\n"
 
-    text += "\n🔱 Admins:"
+    text += "\n🧐 Admins de corno:"
 
     custom_admin_list = {}
     normal_admin_list = []
@@ -591,7 +591,7 @@ def adminlist(update, context):
         custom_title = admin.custom_title
 
         if user.first_name == "":
-            name = "☠ Deleted Account"
+            name = "☠ Conta excluída"
         else:
             name = "{}".format(
                 mention_html(
@@ -637,32 +637,32 @@ def adminlist(update, context):
 
 
 __help__ = """
- ❍ /admins*:* list of admins in the chat
+ ❍ /admins*:* lista de administradores no bate-papo
 
 *Admins only:*
- ❍ /pin*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
- ❍ /unpin*:* unpins the currently pinned message
- ❍ /invitelink*:* gets invitelink
- ❍ /promote*:* promotes the user
- ❍ /demote*:* demotes the user
- ❍ /title <title here>*:* sets a custom title for an admin that the bot promoted
- ❍ /setgtitle <newtitle>*:* Sets new chat title in your group.
- ❍ /setgpic*:* As a reply to file or photo to set group profile pic!
- ❍ /delgpic*:* Same as above but to remove group profile pic.
- ❍ /setsticker*:* As a reply to some sticker to set it as group sticker set!
- ❍ /setdescription <description>*:* Sets new chat description in group.
- ❍ /admincache*:* force refresh the admins list
- ❍ /antispam <on/off/yes/no>*:* Will toggle our antispam tech or return your current settings.
- ❍ /del*:* deletes the message you replied to
- ❍ /purge*:* deletes all messages between this and the replied to message.
- ❍ /purge <integer X>*:* deletes the replied message, and X messages following it if replied to a message.
- ❍ /zombies: counts the number of deleted account in your group
- ❍ /zombies clean: Remove deleted accounts from group..
+ ❍ /pin*:* silenciosamente fixa a mensagem que respondeu - adicione `'loud'` ou `'notify'` para dar notificação aos usuários
+ ❍ /unpin*:* desfixar a mensagem atualmente fixada
+ ❍ /invitelink*:* recebe invitelink do grupo
+ ❍ /promote*:* promove o usuário
+ ❍ /demote*:* rebaixa o usuário
+ ❍ /title <título aqui>*:* define um título personalizado para um administrador que o bot promoveu
+ ❍ /setgtitle <novo título>*:* Define novo título de bate-papo em seu grupo.
+ ❍ /setgpic*:* Como resposta ao arquivo ou foto para definir a foto do perfil do grupo!
+ ❍ /delgpic*:* O mesmo que acima, mas para remover a foto do perfil do grupo.
+ ❍ /setsticker*:* Como resposta a algum adesivo para defini-lo como conjunto de adesivos de grupo!
+ ❍ /setdescription <descrição>*:* Define nova descrição do bate-papo em grupo.
+ ❍ /admincache*:* a atualização da lista de administradores
+ ❍ /antispam <on/off/yes/no>*:* Alternará nossa tecnologia antispam ou retornará suas configurações atuais.
+ ❍ /del*:* exclui a mensagem que você respondeu
+ ❍ /purge*:* exclui todas as mensagens entre isso e a mensagem respondida.
+ ❍ /purge <inteiro X>*:* exclui a mensagem respondida, e x mensagens que a seguem se respondidas a uma mensagem.
+ ❍ /zombies: conta o número de conta contas em seu grupo
+ ❍ /zombies clean: Remover contas excluídas do grupo..
 
-*Note:* Night Mode chats get Automatically closed at 12 am(IST)
-and Automatically openned at 6 am(IST) To Prevent Night Spams.
+*Nota:* Os chats do Modo Noturno são fechados automaticamente às 00:00(BR)
+e aberto automaticamente às 6:00(BR) para prevenir spam noturnos.
 
-⚠️ `Read from top`
+⚠️ `Leia de cima`
 """
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist)
