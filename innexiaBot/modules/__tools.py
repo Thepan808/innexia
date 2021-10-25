@@ -1,22 +1,22 @@
 __mod_name__ = "Tools"
 
 __help__ = """
-*Fake Info*
- ❍ /fakegen*:* Generates Fake Information
- ❍ /picgen*:* Generate a fake pic 
+*Informações falsas*
+ ♦️ /fakegen*:* Gera informações falsas
+ ♦️ /picgen*:* Gere uma foto falsa 
 
-*Date-time-Weather*
- ❍ /time <country code>*:* Gives information about a timezone.
- ❍ /weather <city>*:* Get weather info in a particular place.
- ❍ /wttr <city>*:* Advanced weather module, usage same as /weather
- ❍ /wttr moon*:* Get the current status of moon
+*Data-tempo-tempo*
+ ♦️ /time <código de país>*:* Dá informações sobre um fuso horário.
+ ♦️ /weather <Cidade>*:* Obtenha informações meteorológicas em um determinado lugar.
+ ♦️ /wttr <Cidade>*:* Módulo meteorológico avançado, uso igual a /weather
+ ♦️ /wttr moon*:* Obtenha o status atual da lua
  
 *Quotly*
-- /q : reply any message with this command to create a sticker.
+- /q : responder qualquer mensagem com este comando para criar um adesivo.
 
-*Converts*
- ❍ /encrypt*:* Encrypts The Given Text
- ❍ /decrypt*:* Decrypts Previously Ecrypted Text
- ❍ /zip*:* reply to a telegram file to compress it in .zip format
- ❍ /unzip*:* reply to a telegram file to decompress it from the .zip format
+*Converte*
+ ❍ /encrypt*:* Criptografa o texto dado
+ ❍ /decrypt*:* Descriptografias texto previamente egrafado
+ ❍ /zip*:* responder a um arquivo de telegrama para comprimi-lo em formato .zip
+ ❍ /unzip*:* responder a um arquivo de telegrama para descompactá-lo a partir do formato .zip
 """
