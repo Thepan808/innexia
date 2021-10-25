@@ -118,7 +118,7 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
         if file_name:
             try:
                 await message.edit(
-                    "{}\n**File Name:** `{}`\n{}".format(type_of_ps, file_name, tmp)
+                    "{}\n**Nome file:** `{}`\n{}".format(type_of_ps, file_name, tmp)
                 )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
@@ -157,22 +157,22 @@ async def iter_chats(client):
 async def fetch_audio(client, message):
     time.time()
     if not message.reply_to_message:
-        await message.reply("`Reply To A Video / Audio.`")
+        await message.reply("`Marque o Video / Audio.`")
         return
     warner_stark = message.reply_to_message
     if warner_stark.audio is None and warner_stark.video is None:
-        await message.reply("`Format Not Supported`")
+        await message.reply("`Formato não suportado`")
         return
     if warner_stark.video:
-        lel = await message.reply("`Video Detected, Converting To Audio !`")
+        lel = await message.reply("`Vídeo detectado, convertendo em áudio !`")
         warner_bros = await message.reply_to_message.download()
         stark_cmd = f"ffmpeg -i {warner_bros} -map 0:a friday.mp3"
         await runcmd(stark_cmd)
         final_warner = "friday.mp3"
     elif warner_stark.audio:
-        lel = await edit_or_reply(message, "`Download Started !`")
+        lel = await edit_or_reply(message, "`Download Iniciado !`")
         final_warner = await message.reply_to_message.download()
-    await lel.edit("`Almost Done!`")
+    await lel.edit("`Quase feito!`")
     await lel.delete()
     return final_warner
 
@@ -204,7 +204,7 @@ async def runcmd(cmd: str) -> Tuple[str, str, int, int]:
 
 
 async def convert_to_image(message, client) -> [None, str]:
-    """Convert Most Media Formats To Raw Image"""
+    """Converter a maioria dos formatos de mídia para imagem"""
     final_path = None
     if not (
         message.reply_to_message.photo
