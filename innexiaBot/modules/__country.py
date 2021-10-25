@@ -19,7 +19,7 @@ async def msg(event):
     try:
 	    a = country.info()
     except:
-	    await event.reply("Country Not Avaiable Currently")
+	    await event.reply("País não avaível atualmente")
     name = a.get("name")
     bb= a.get("altSpellings")
     hu = ''
@@ -79,29 +79,29 @@ async def msg(event):
 
     wiki = a.get("wiki")
 
-    caption = f"""<b><u>Information Gathered Successfully</b></u>
+    caption = f"""<b><u>Informações coletadas com sucesso</b></u>
 <b>
-Country Name:- {name}
-Alternative Spellings:- {hu}
-Country Area:- {area} square kilometers
-Borders:- {borders}
-Calling Codes:- {call}
-Country's Capital:- {capital}
-Country's currency:- {currencies}
-Country's Flag:- {okie}
+Nome do país:- {name}
+Ortografias alternativas:- {hu}
+Área rural:- {area} square kilometers
+Fronteiras:- {borders}
+Chamando códigos:- {call}
+Capital do País:- {capital}
+Moeda do país:- {currencies}
+Bandeira do País:- {okie}
 Demonym:- {HmM}
-Country Type:- {EsCoBaR}
-ISO Names:- {iso}
-Languages:- {lMAO}
-Native Name:- {nonive}
-population:- {waste}
-Region:- {reg}
-Sub Region:- {sub}
-Time Zones:- {tom}
-Top Level Domain:- {lanester}
+Tipo de país:- {EsCoBaR}
+Nomes ISO:- {iso}
+Idiomas:- {lMAO}
+Nome Nativo:- {nonive}
+população:- {waste}
+Região:- {reg}
+Sub-Região:- {sub}
+Zonas horárias:- {tom}
+Domínio de nível superior:- {lanester}
 wikipedia:- {wiki}</b>
 
-Gathered By Innexia.</b>
+Reunidos por Grave Sad Manager.</b>
 """
     
     
