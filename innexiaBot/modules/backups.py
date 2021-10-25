@@ -370,12 +370,12 @@ def get_chat(chat_id, chat_data):
 __mod_name__ = "Backup"
 
 __help__ = """
-*Only for group owner:*
+*Apenas para o dono do grupo:*
 
- ❍ /import: Reply to the backup file for the butler / emilia group to import as much as possible, making transfers very easy! \
- Note that files / photos cannot be imported due to telegram restrictions.
+ ❍ /import: Responda ao arquivo de backup para o grupo importar o máximo possível, facilitando as transferências! \
+ Observe que arquivos / fotos não podem ser importados devido a restrições de telegram.
 
- ❍ /export: Export group data, which will be exported are: rules, notes (documents, images, music, video, audio, voice, text, text buttons) \
+ ❍ /export: Os dados do grupo de exportação, que serão exportados são: regras, notas (documentos, imagens, música, vídeo, áudio, voz, texto, botões de texto) \
 
 """
 
