@@ -83,42 +83,42 @@ async def profanity(event):
     input = event.pattern_match.group(2)
     if not event.sender_id == OWNER_ID:
         if not await is_register_admin(event.input_chat, event.sender_id):
-           await event.reply("Only admins can execute this command!")
+           await event.reply("Apenas administradores podem executar este comando!")
            return
         else:
           if not await can_change_info(message=event):
-            await event.reply("You are missing the following rights to use this command:CanChangeinfo")
+            await event.reply("Você está perdendo os seguintes direitos de usar este comando:CanChangeinfo")
             return
     if not input:
         if is_nightmode_indb(str(event.chat_id)):
                 await event.reply(
-                    "Currently NightMode is Enabled for this Chat"
+                    "Atualmente, o NightMode está habilitado para este bate-papo"
                 )
                 return
         await event.reply(
-            "Currently NightMode is Disabled for this Chat"
+            "Atualmente, o NightMode está desativado para este bate-papo"
         )
         return
     if "on" in input:
         if event.is_group:
             if is_nightmode_indb(str(event.chat_id)):
                     await event.reply(
-                        "Night Mode is Already Turned ON for this Chat"
+                        "Modo Noturno já está ligado para este bate-papo"
                     )
                     return
             add_nightmode(str(event.chat_id))
-            await event.reply("NightMode turned on for this chat.")
+            await event.reply("NightMode ligado para este bate-papo.")
     if "off" in input:
         if event.is_group:
             if not is_nightmode_indb(str(event.chat_id)):
                     await event.reply(
-                        "Night Mode is Already Off for this Chat"
+                        "Modo Noturno já está desligado para este bate-papo"
                     )
                     return
         rmnightmode(str(event.chat_id))
-        await event.reply("NightMode Disabled!")
+        await event.reply("NightMode desativado!")
     if not "off" in input and not "on" in input:
-        await event.reply("Please Specify On or Off!")
+        await event.reply("Por favor, especifique on ou off!")
         return
 
 
@@ -129,7 +129,7 @@ async def job_close():
     for pro in chats:
         try:
             await tbot.send_message(
-              int(pro.chat_id), "12:00 Am, Group Is Closing Till 6 Am. Night Mode Started ! \n**Powered By Innexia**"
+              int(pro.chat_id), "12:00, grupo está fechando até 6:00. Modo noturno iniciado ! \n**By Pelo Grave Manager**"
             )
             await tbot(
             functions.messages.EditChatDefaultBannedRightsRequest(
@@ -137,10 +137,10 @@ async def job_close():
             )
             )
         except Exception as e:
-            logger.info(f"Unable To Close Group {chat} - {e}")
+            logger.info(f"Incapaz de fechar grupo {chat} - {e}")
 
 #Run everyday at 12am
-scheduler = AsyncIOScheduler(timezone="Asia/Kolkata")
+scheduler = AsyncIOScheduler(timezone="America/Maceio")
 scheduler.add_job(job_close, trigger="cron", hour=23, minute=59)
 scheduler.start()
 
@@ -151,7 +151,7 @@ async def job_open():
     for pro in chats:
         try:
             await tbot.send_message(
-              int(pro.chat_id), "06:00 Am, Group Is Opening.\n**Powered By Innexia**"
+              int(pro.chat_id), "06:00 am, Grupo está abrindo.\n** By Grave Manager**"
             )
             await tbot(
             functions.messages.EditChatDefaultBannedRightsRequest(
@@ -159,19 +159,19 @@ async def job_open():
             )
         )
         except Exception as e:
-            logger.info(f"Unable To Open Group {pro.chat_id} - {e}")
+            logger.info(f"Grupo incapaz de abrir {pro.chat_id} - {e}")
 
 # Run everyday at 06
-scheduler = AsyncIOScheduler(timezone="Asia/Kolkata")
+scheduler = AsyncIOScheduler(timezone="America/Maceio")
 scheduler.add_job(job_open, trigger="cron", hour=5, minute=58)
 scheduler.start()
 
 
 __help__ = f"""
- ❍ /nightmode on/off
+ ♦️ /nightmode on/off
  
-**Note:** Night Mode chats get Automatically closed at 12pm(IST)
-and Automatically openned at 6am(IST) To Prevent Night Spams.
+**Nota:** Chats do Modo Noturno são automaticamente fechados às 00:00 (Brasil South América)
+e automaticamente aberto às 6:00 da manhã. Para prevenir spam noturnos e altas putaria meo parceiro. 
 """
 
 __mod_name__ = "NtMode"
