@@ -49,40 +49,40 @@ def ban(update: Update, context: CallbackContext) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("I doubt that's a user.")
+        message.reply_text("Duvido que seja um usuário..")
         return log_message
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
-        if excp.message != "User not found":
+        if excp.message != "Usuário não encontrado":
             raise
-        message.reply_text("Can't seem to find this person.")
+        message.reply_text("Não consigo encontrar essa pessoa..")
         return log_message
     if user_id == bot.id:
-        message.reply_text("Oh yeah, ban myself, noob!")
+        message.reply_text("Oh sim, banir a mim mesmo, desgraça!")
         return log_message
 
     if is_user_ban_protected(chat, user_id, member) and user not in DEV_USERS:
         if user_id == OWNER_ID:
-            message.reply_text("Trying to put me against a God level disaster huh?")
+            message.reply_text("Tentando me colocar contra o meu pae, é?")
         elif user_id in DEV_USERS:
-            message.reply_text("I can't act against our own.")
+            message.reply_text("Não posso agir contra o nosso..")
         elif user_id in DRAGONS:
             message.reply_text(
-                "Fighting this Dragon here will put civilian lives at risk."
+                "Lutar contra este Dragão aqui colocará vidas civis em risco.."
             )
         elif user_id in DEMONS:
             message.reply_text(
-                "Bring an order from Heroes association to fight a Demon disaster."
+                "Traga uma ordem da associação Heroes para combater um desastre demoníaco."
             )
         elif user_id in TIGERS:
             message.reply_text(
-                "Bring an order from Heroes association to fight a Tiger disaster."
+                "Traga uma ordem da associação Heroes para combater um desastre do Tigre."
             )
         elif user_id in WOLVES:
-            message.reply_text("Wolf abilities make them ban immune!")
+            message.reply_text("As habilidades dos lobos os tornam imunes pae!")
         else:
-            message.reply_text("This user has immunity and cannot be banned.")
+            message.reply_text("Este usuário tem imunidade e não pode ser banido :).")
         return log_message
     if message.text.startswith("/s"):
         silent = True
@@ -92,12 +92,12 @@ def ban(update: Update, context: CallbackContext) -> str:
         silent = False
     log = (
         f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#{'S' if silent else ''}BANNED\n"
+        f"#{'S' if silent else ''}BANIDO\n"
         f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
         f"<b>User:</b> {mention_html(member.user.id, html.escape(member.user.first_name))}"
     )
     if reason:
-        log += "\n<b>Reason:</b> {}".format(reason)
+        log += "\n<b>Razão:</b> {}".format(reason)
 
     try:
         chat.kick_member(user_id)
@@ -110,20 +110,20 @@ def ban(update: Update, context: CallbackContext) -> str:
 
         # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
         reply = (
-            f"<code>❕</code><b>Ban Event</b>\n"
+            f"<code>❕</code><b>Banido o gay</b>\n"
             f"<code> </code><b>•  User:</b> {mention_html(member.user.id, html.escape(member.user.first_name))}"
         )
         if reason:
-            reply += f"\n<code> </code><b>•  Reason:</b> \n{html.escape(reason)}"
+            reply += f"\n<code> </code><b>•  Razão:</b> \n{html.escape(reason)}"
         bot.sendMessage(chat.id, reply, parse_mode=ParseMode.HTML, quote=False)
         return log
 
     except BadRequest as excp:
-        if excp.message == "Reply message not found":
+        if excp.message == "Mensagem de resposta não encontrada":
             # Do not reply
             if silent:
                 return log
-            message.reply_text("Banned!", quote=False)
+            message.reply_text("Banido fela!", quote=False)
             return log
         else:
             LOGGER.warning(update)
@@ -399,19 +399,19 @@ def selfunban(context: CallbackContext, update: Update) -> str:
 
 
 __help__ = """
- ❍ /punchme*:* punchs the user who issued the command
+ ❍ /punchme*:* perfura o usuário que emitiu o comando
 
-*Admins only:*
- ❍ /ban <userhandle>*:* bans a user. (via handle, or reply)
- ❍ /sban <userhandle>*:* Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
- ❍ /tban <userhandle> x(m/h/d)*:* bans a user for `x` time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
+*Só administradores:*
+ ❍ /ban <userhandle>*:* proíbe um usuário. (via handler ou resposta)
+ ❍ /sban <userhandle>*:* Banir silenciosamente um usuário. Exclui comando, mensagem respondida e não responde. (via handler ou resposta)
+ ❍ /tban <userhandle> x(m/h/d)*:* proíbe um usuário para `x` time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
  ❍ /unban <userhandle>*:* unbans a user. (via handle, or reply)
- ❍ /punch <userhandle>*:* Punches a user out of the group, (via handle, or reply)
+ ❍ /punch <userhandle>*:* Soca um usuário fora do grupo, (via handle, or reply)
 
- *Admins only:*
- ❍ /mute <userhandle>*:* silences a user. Can also be used as a reply, muting the replied to user.
- ❍ /tmute <userhandle> x(m/h/d)*:* mutes a user for x time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
- ❍ /unmute <userhandle>*:* unmutes a user. Can also be used as a reply, muting the replied to user.
+ *Só administradores:*
+ ❍ /mute <userhandle>*:* silencia um usuário. Também pode ser usado como resposta, silenciando o respondido ao usuário.
+ ❍ /tmute <userhandle> x(m/h/d)*:* silencia um usuário para x tempo. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
+ ❍ /unmute <userhandle>*:* desmute um usuário. Também pode ser usado como resposta, silenciando o respondido ao usuário.
 """
 
 BAN_HANDLER = CommandHandler(["ban", "sban"], ban)
