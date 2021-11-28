@@ -85,7 +85,7 @@ buttons = [
             text="❔Quer ajuda dos comandos ❔", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="🔥 𝕮𝖗𝖎𝖆𝖉𝖔𝖗 ♦️", url=f"https://t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx"),
+        InlineKeyboardButton(text="🔥 𝕮𝖗𝖎𝖆𝖉𝖔𝖗 ♦️", url=f"https://t.me/The_Panda_Ofc"),
         InlineKeyboardButton(
             text="Vᴄ Pʟᴀʏᴇʀ 🎶", url=f"https://telegra.ph/𝚅𝚌-𝙿𝚕𝚊𝚢𝚎𝚛-𝙶𝚛𝚊𝚟𝚎-𝚂𝚊𝚍-10-25"
         ),
@@ -109,7 +109,7 @@ HELP_STRINGS = """
 
 
 DONATE_STRING = """Ei gay, fico feliz em saber que talvez você possa doar! (Brinks) 
- @xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx 😂"""
+ @The_Panda_Ofc 😂"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -367,10 +367,10 @@ def innexia_about_callback(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Bᴜɢ'ꜱ", url="t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx"
+                            text="Bᴜɢ'ꜱ", url="t.me/The_Panda_Ofc"
                         ),
                         InlineKeyboardButton(
-                            text="Quer uma lista dos meus bots?", url="t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx"
+                            text="Quer uma lista dos meus bots?", url="t.me/The_Panda_Ofc"
                         ),
                     ],
                     [InlineKeyboardButton(text="Voltar", callback_data="innexia_back")],
@@ -449,7 +449,7 @@ def innexia_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="𝕮𝖗𝖎𝖆𝖉𝖔𝖗", url="t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx"),
+                    InlineKeyboardButton(text="𝕮𝖗𝖎𝖆𝖉𝖔𝖗", url="t.me/The_Panda_Ofc"),
                     InlineKeyboardButton(text="Grupo suporte", url="t.me/blazer808_Stay"),
                  ],
                  [
@@ -471,7 +471,7 @@ def innexia_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="O Pae", url="t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx"),
+                    InlineKeyboardButton(text="O Pae", url="t.me/The_Panda_Ofc"),
                     InlineKeyboardButton(text="Bʟᴀᴢᴇ", url="t.me/blazer808_Stay"),
                  ],
                  [
@@ -493,7 +493,7 @@ def Source_about_callback(update, context):
     if query.data == "source_":
         query.message.edit_text(
             text=""" Olá gay do caralho aqui é o *Grave Manager*
-                 \nQuer saber quem é a porra do criador? [𝕮𝖗𝖎𝖆𝖉𝖔𝖗](https://t.me/xPV_D4_M34_S4Y0R1_D3M0N_CR4ZZYx) .""",
+                 \nQuer saber quem é a porra do criador? [𝕮𝖗𝖎𝖆𝖉𝖔𝖗](https://t.me/The_Panda_Ofc) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
