@@ -46,9 +46,9 @@ ujson
 pretty_errors
 TgCrypto
 Pyrogram
-git+https://github.com/Sorrybabe/downloader
-dnspython
-youtube_search
+git+https://github.com/yt-dlp/yt-dlp@master
+youtube-search-python==1.5.1
+youtube-search
 asyncio
 dateparser==1.0.0
 pymongo
