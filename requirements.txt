@@ -45,9 +45,9 @@ cachetools
 ujson
 pretty_errors
 TgCrypto
-Pyrogram
-git+https://github.com/yt-dlp/yt-dlp@master
-youtube-search-python==1.5.1
+git+https://github.com/pyrogram/pyrogram@master
+git+https://github.com/itsunknown-12/yt-dl@master
+git+https://github.com/alexmercerind/youtube-search-python@main
 youtube-search
 asyncio
 dateparser==1.0.0
