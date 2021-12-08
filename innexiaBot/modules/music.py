@@ -9,7 +9,7 @@ import wget
 from pyrogram import filters
 from pyrogram.types import Message
 from tswift import Song
-from youtube_dl import YoutubeDL
+from yt_dlp import YoutubeDL
 from youtubesearchpython import SearchVideos
 
 from innexiaBot.conf import get_str_key
@@ -243,7 +243,7 @@ async def lyrics(client, message):
         os.remove("lyrics.txt")
     else:
         await lel.edit(
-            f"**Search query**: \n`{artist} - {song}`\n\n```{songs.lyrics}```"
+            f"**Pesquisa de**: \n`{artist} - {song}`\n\n```{songs.lyrics}```"
         )
     return
 
