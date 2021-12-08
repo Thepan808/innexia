@@ -46,8 +46,8 @@ ujson
 pretty_errors
 TgCrypto
 git+https://github.com/pyrogram/pyrogram@master
-git+https://github.com/itsunknown-12/yt-dl@master
-git+https://github.com/alexmercerind/youtube-search-python@main
+youtube-dl
+youtube_search_python
 youtube-search
 asyncio
 dateparser==1.0.0
